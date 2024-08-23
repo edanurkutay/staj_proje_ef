@@ -66,34 +66,38 @@ namespace staj_proje_ef
 
         }
 
+        private void Labeltext()
+        {
+            //Forms.view.tableNameLabel.Text = "s";
+
+        }
+
         private void viewStaffBtn_Click(object sender, EventArgs e)
         {
+            OpenChildForm(new Forms.viewperson(), sender);
         }
 
         private void viewCusBtn_Click(object sender, EventArgs e)
         {
-
+            OpenChildForm(new Forms.viewperson(), sender);
         }
 
         private void acceptCusBtn_Click(object sender, EventArgs e)
         {
-
+            OpenChildForm(new Forms.viewperson(), sender);
         }
 
         private void addCusBtn_Click(object sender, EventArgs e)
         {
-
+            OpenChildForm(new Forms.addcus(), sender);
         }
 
         private void addStaffBtn_Click(object sender, EventArgs e)
         {
-
+            OpenChildForm(new Forms.addemp(), sender);
         }
 
-        private void editStaffBtn_Click(object sender, EventArgs e)
-        {
-
-        }
+  
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {

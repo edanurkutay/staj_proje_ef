@@ -21,9 +21,9 @@ public class Staff
     public string? Address { get; set; }
     public string? username {  get; set; }
     public string? password { get; set; }
-    public Unit Unit { get; set; }
-    public Job Job { get; set; }
-    public Role Role  { get; set; }
+    public Unit? Unit { get; set; }
+    public Job? Job { get; set; }
+    public Role? Role  { get; set; }
 
 }
 
@@ -46,8 +46,8 @@ public class Unit
     public int unitID { get; set; }
     public string? unitName { get; set; }
     public int staffID { get; set; } // staff tablosundan gelen FK birim yöneticileri
-    public ICollection<Staff> Staffs { get; set; }
-    public ICollection<Job> Jobs { get; set; }
+    public ICollection<Staff>? Staffs { get; set; }
+    public ICollection<Job>? Jobs { get; set; }
 
 }
 
@@ -56,7 +56,7 @@ public class Job
     public int jobID { get; set;}
     public string? JobName { get; set; }
     public int unitID { get; set; } // unit tablosundan gelen FK
-    public Unit Unit { get; set; }
+    public Unit? Unit { get; set; }
 }
 
 public class Role

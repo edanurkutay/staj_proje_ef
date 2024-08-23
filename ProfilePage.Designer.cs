@@ -39,7 +39,6 @@
             viewCusBtn = new Button();
             btnPanel = new Panel();
             addStaffBtn = new Button();
-            editStaffBtn = new Button();
             addCusBtn = new Button();
             viewStaffBtn = new Button();
             acceptCusBtn = new Button();
@@ -136,7 +135,7 @@
             viewCusBtn.Font = new Font("Segoe Print", 9F);
             viewCusBtn.Location = new Point(0, -3);
             viewCusBtn.Name = "viewCusBtn";
-            viewCusBtn.Size = new Size(150, 75);
+            viewCusBtn.Size = new Size(180, 75);
             viewCusBtn.TabIndex = 1;
             viewCusBtn.Text = "Müşteri Görüntüle";
             viewCusBtn.UseVisualStyleBackColor = false;
@@ -146,7 +145,6 @@
             // 
             btnPanel.BackColor = Color.Lavender;
             btnPanel.Controls.Add(addStaffBtn);
-            btnPanel.Controls.Add(editStaffBtn);
             btnPanel.Controls.Add(addCusBtn);
             btnPanel.Controls.Add(viewStaffBtn);
             btnPanel.Controls.Add(acceptCusBtn);
@@ -163,28 +161,13 @@
             addStaffBtn.FlatAppearance.BorderSize = 0;
             addStaffBtn.FlatStyle = FlatStyle.Flat;
             addStaffBtn.Font = new Font("Segoe Print", 9F);
-            addStaffBtn.Location = new Point(450, -3);
+            addStaffBtn.Location = new Point(540, -3);
             addStaffBtn.Name = "addStaffBtn";
-            addStaffBtn.Size = new Size(150, 75);
+            addStaffBtn.Size = new Size(180, 75);
             addStaffBtn.TabIndex = 4;
             addStaffBtn.Text = "Personel Ekle";
             addStaffBtn.UseVisualStyleBackColor = false;
             addStaffBtn.Click += addStaffBtn_Click;
-            // 
-            // editStaffBtn
-            // 
-            editStaffBtn.BackColor = Color.Lavender;
-            editStaffBtn.BackgroundImageLayout = ImageLayout.None;
-            editStaffBtn.FlatAppearance.BorderSize = 0;
-            editStaffBtn.FlatStyle = FlatStyle.Flat;
-            editStaffBtn.Font = new Font("Segoe Print", 9F);
-            editStaffBtn.Location = new Point(750, -3);
-            editStaffBtn.Name = "editStaffBtn";
-            editStaffBtn.Size = new Size(150, 75);
-            editStaffBtn.TabIndex = 6;
-            editStaffBtn.Text = "Personel Bilgisi Güncelle";
-            editStaffBtn.UseVisualStyleBackColor = false;
-            editStaffBtn.Click += editStaffBtn_Click;
             // 
             // addCusBtn
             // 
@@ -192,9 +175,9 @@
             addCusBtn.FlatAppearance.BorderSize = 0;
             addCusBtn.FlatStyle = FlatStyle.Flat;
             addCusBtn.Font = new Font("Segoe Print", 9F);
-            addCusBtn.Location = new Point(300, -3);
+            addCusBtn.Location = new Point(360, -3);
             addCusBtn.Name = "addCusBtn";
-            addCusBtn.Size = new Size(150, 75);
+            addCusBtn.Size = new Size(180, 75);
             addCusBtn.TabIndex = 3;
             addCusBtn.Text = "Müşteri Ekle";
             addCusBtn.UseVisualStyleBackColor = false;
@@ -206,9 +189,9 @@
             viewStaffBtn.FlatAppearance.BorderSize = 0;
             viewStaffBtn.FlatStyle = FlatStyle.Flat;
             viewStaffBtn.Font = new Font("Segoe Print", 9F);
-            viewStaffBtn.Location = new Point(600, -3);
+            viewStaffBtn.Location = new Point(720, -3);
             viewStaffBtn.Name = "viewStaffBtn";
-            viewStaffBtn.Size = new Size(150, 75);
+            viewStaffBtn.Size = new Size(180, 75);
             viewStaffBtn.TabIndex = 5;
             viewStaffBtn.Text = "Personel Görüntüle";
             viewStaffBtn.UseVisualStyleBackColor = false;
@@ -220,9 +203,9 @@
             acceptCusBtn.FlatAppearance.BorderSize = 0;
             acceptCusBtn.FlatStyle = FlatStyle.Flat;
             acceptCusBtn.Font = new Font("Segoe Print", 9F);
-            acceptCusBtn.Location = new Point(150, -3);
+            acceptCusBtn.Location = new Point(180, -3);
             acceptCusBtn.Name = "acceptCusBtn";
-            acceptCusBtn.Size = new Size(150, 75);
+            acceptCusBtn.Size = new Size(180, 75);
             acceptCusBtn.TabIndex = 2;
             acceptCusBtn.Text = "Müşteri Onayla";
             acceptCusBtn.UseVisualStyleBackColor = false;
@@ -269,7 +252,6 @@
         private PictureBox pictureBox1;
         private Button viewCusBtn;
         private Panel btnPanel;
-        private Button editStaffBtn;
         private Button addCusBtn;
         private Button viewStaffBtn;
         private Button acceptCusBtn;
