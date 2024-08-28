@@ -18,12 +18,7 @@ namespace staj_proje_ef.Forms
         }
         CompanySystemContext db = new CompanySystemContext();
 
-        private async void ViewStaff()
-        {
-            var staffTable = db.staffs.ToList();
-
-        }
-
+   
 
 
         private void viewperson_Load(object sender, EventArgs e)
