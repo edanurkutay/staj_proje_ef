@@ -31,12 +31,12 @@
             label2 = new Label();
             label1 = new Label();
             panel1 = new Panel();
-            maskedTextBox2 = new MaskedTextBox();
-            maskedTextBox1 = new MaskedTextBox();
-            button1 = new Button();
-            textBox5 = new TextBox();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
+            telBox = new MaskedTextBox();
+            tcBox = new MaskedTextBox();
+            cusRegistBtn = new Button();
+            emailBox = new TextBox();
+            surnameBox = new TextBox();
+            nameBox = new TextBox();
             label4 = new Label();
             label5 = new Label();
             label3 = new Label();
@@ -63,12 +63,12 @@
             // 
             // panel1
             // 
-            panel1.Controls.Add(maskedTextBox2);
-            panel1.Controls.Add(maskedTextBox1);
-            panel1.Controls.Add(button1);
-            panel1.Controls.Add(textBox5);
-            panel1.Controls.Add(textBox2);
-            panel1.Controls.Add(textBox1);
+            panel1.Controls.Add(telBox);
+            panel1.Controls.Add(tcBox);
+            panel1.Controls.Add(cusRegistBtn);
+            panel1.Controls.Add(emailBox);
+            panel1.Controls.Add(surnameBox);
+            panel1.Controls.Add(nameBox);
             panel1.Controls.Add(label4);
             panel1.Controls.Add(label5);
             panel1.Controls.Add(label3);
@@ -79,52 +79,53 @@
             panel1.Size = new Size(277, 369);
             panel1.TabIndex = 22;
             // 
-            // maskedTextBox2
+            // telBox
             // 
-            maskedTextBox2.Location = new Point(81, 135);
-            maskedTextBox2.Mask = "(999) 000-0000";
-            maskedTextBox2.Name = "maskedTextBox2";
-            maskedTextBox2.Size = new Size(185, 34);
-            maskedTextBox2.TabIndex = 22;
+            telBox.Location = new Point(81, 135);
+            telBox.Mask = "(999) 000-0000";
+            telBox.Name = "telBox";
+            telBox.Size = new Size(185, 34);
+            telBox.TabIndex = 22;
             // 
-            // maskedTextBox1
+            // tcBox
             // 
-            maskedTextBox1.Location = new Point(81, 184);
-            maskedTextBox1.Mask = "00000000000";
-            maskedTextBox1.Name = "maskedTextBox1";
-            maskedTextBox1.Size = new Size(185, 34);
-            maskedTextBox1.TabIndex = 21;
-            maskedTextBox1.ValidatingType = typeof(int);
+            tcBox.Location = new Point(81, 184);
+            tcBox.Mask = "00000000000";
+            tcBox.Name = "tcBox";
+            tcBox.Size = new Size(185, 34);
+            tcBox.TabIndex = 21;
+            tcBox.ValidatingType = typeof(int);
             // 
-            // button1
+            // cusRegistBtn
             // 
-            button1.Location = new Point(148, 292);
-            button1.Name = "button1";
-            button1.Size = new Size(118, 55);
-            button1.TabIndex = 20;
-            button1.Text = "Kaydet";
-            button1.UseVisualStyleBackColor = true;
+            cusRegistBtn.Location = new Point(148, 292);
+            cusRegistBtn.Name = "cusRegistBtn";
+            cusRegistBtn.Size = new Size(118, 55);
+            cusRegistBtn.TabIndex = 20;
+            cusRegistBtn.Text = "Kaydet";
+            cusRegistBtn.UseVisualStyleBackColor = true;
+            cusRegistBtn.Click += cusRegistBtn_Click;
             // 
-            // textBox5
+            // emailBox
             // 
-            textBox5.Location = new Point(81, 229);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(185, 34);
-            textBox5.TabIndex = 10;
+            emailBox.Location = new Point(81, 229);
+            emailBox.Name = "emailBox";
+            emailBox.Size = new Size(185, 34);
+            emailBox.TabIndex = 10;
             // 
-            // textBox2
+            // surnameBox
             // 
-            textBox2.Location = new Point(81, 83);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(185, 34);
-            textBox2.TabIndex = 7;
+            surnameBox.Location = new Point(81, 83);
+            surnameBox.Name = "surnameBox";
+            surnameBox.Size = new Size(185, 34);
+            surnameBox.TabIndex = 7;
             // 
-            // textBox1
+            // nameBox
             // 
-            textBox1.Location = new Point(81, 37);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(185, 34);
-            textBox1.TabIndex = 6;
+            nameBox.Location = new Point(81, 37);
+            nameBox.Name = "nameBox";
+            nameBox.Size = new Size(185, 34);
+            nameBox.TabIndex = 6;
             // 
             // label4
             // 
@@ -176,14 +177,14 @@
         private Label label2;
         private Label label1;
         private Panel panel1;
-        private Button button1;
-        private TextBox textBox5;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private Button cusRegistBtn;
+        private TextBox emailBox;
+        private TextBox surnameBox;
+        private TextBox nameBox;
         private Label label4;
         private Label label5;
         private Label label3;
-        private MaskedTextBox maskedTextBox1;
-        private MaskedTextBox maskedTextBox2;
+        private MaskedTextBox tcBox;
+        private MaskedTextBox telBox;
     }
 }

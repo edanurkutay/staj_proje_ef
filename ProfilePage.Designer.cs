@@ -43,6 +43,7 @@
             viewStaffBtn = new Button();
             acceptCusBtn = new Button();
             mainPanel = new Panel();
+            unitLabel = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)settingsButton).BeginInit();
             ((System.ComponentModel.ISupportInitialize)exitButton).BeginInit();
@@ -74,6 +75,8 @@
             pageNameLabel.Size = new Size(96, 30);
             pageNameLabel.TabIndex = 5;
             pageNameLabel.Text = "Sayfa Adı";
+            pageNameLabel.Visible = false;
+            pageNameLabel.Click += pageNameLabel_Click;
             // 
             // settingsButton
             // 
@@ -161,7 +164,7 @@
             addStaffBtn.FlatAppearance.BorderSize = 0;
             addStaffBtn.FlatStyle = FlatStyle.Flat;
             addStaffBtn.Font = new Font("Segoe Print", 9F);
-            addStaffBtn.Location = new Point(540, -3);
+            addStaffBtn.Location = new Point(360, -3);
             addStaffBtn.Name = "addStaffBtn";
             addStaffBtn.Size = new Size(180, 75);
             addStaffBtn.TabIndex = 4;
@@ -175,7 +178,7 @@
             addCusBtn.FlatAppearance.BorderSize = 0;
             addCusBtn.FlatStyle = FlatStyle.Flat;
             addCusBtn.Font = new Font("Segoe Print", 9F);
-            addCusBtn.Location = new Point(360, -3);
+            addCusBtn.Location = new Point(540, -3);
             addCusBtn.Name = "addCusBtn";
             addCusBtn.Size = new Size(180, 75);
             addCusBtn.TabIndex = 3;
@@ -213,11 +216,19 @@
             // 
             // mainPanel
             // 
-            mainPanel.Dock = DockStyle.Fill;
             mainPanel.Location = new Point(0, 144);
             mainPanel.Name = "mainPanel";
-            mainPanel.Size = new Size(900, 456);
+            mainPanel.Size = new Size(900, 423);
             mainPanel.TabIndex = 3;
+            // 
+            // unitLabel
+            // 
+            unitLabel.AutoSize = true;
+            unitLabel.Location = new Point(0, 570);
+            unitLabel.Name = "unitLabel";
+            unitLabel.Size = new Size(64, 30);
+            unitLabel.TabIndex = 6;
+            unitLabel.Text = "label1";
             // 
             // ProfilePage
             // 
@@ -225,6 +236,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Azure;
             ClientSize = new Size(900, 600);
+            Controls.Add(unitLabel);
             Controls.Add(mainPanel);
             Controls.Add(btnPanel);
             Controls.Add(panel1);
@@ -235,6 +247,7 @@
             Name = "ProfilePage";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
+            Load += ProfilePage_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)settingsButton).EndInit();
@@ -242,13 +255,12 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             btnPanel.ResumeLayout(false);
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private Panel panel1;
-        private Label nameLabel;
-        private Label roleLabel;
         private PictureBox pictureBox1;
         private Button viewCusBtn;
         private Panel btnPanel;
@@ -260,5 +272,8 @@
         private PictureBox settingsButton;
         private Label pageNameLabel;
         private Panel mainPanel;
+        public Label nameLabel;
+        public Label roleLabel;
+        public Label unitLabel;
     }
 }

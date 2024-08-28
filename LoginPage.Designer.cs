@@ -83,6 +83,7 @@
             button1.TabIndex = 4;
             button1.Text = "Çıkış";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
@@ -139,7 +140,7 @@
             Font = new Font("Segoe Print", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 162);
             ForeColor = Color.Navy;
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             Name = "LoginPage";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";

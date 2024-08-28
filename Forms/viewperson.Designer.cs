@@ -99,6 +99,7 @@
             Margin = new Padding(4);
             Name = "viewperson";
             Text = "Görüntüle";
+            Load += viewperson_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }

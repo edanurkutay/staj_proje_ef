@@ -14,9 +14,12 @@ namespace staj_proje_ef
     {
         private Button currentButton;
         private Form activeForm;
+
+
         public ProfilePage()
         {
             InitializeComponent();
+
         }
 
         private void ActivateButton(object btnSender)
@@ -49,7 +52,7 @@ namespace staj_proje_ef
         }
         private void OpenChildForm(Form childForm, object btnSender)
         {
-            if(activeForm !=null)
+            if (activeForm != null)
             {
                 activeForm.Close();
             }
@@ -62,15 +65,47 @@ namespace staj_proje_ef
             this.mainPanel.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
+            pageNameLabel.Visible = true;
             pageNameLabel.Text = childForm.Text;
-
         }
 
-        private void Labeltext()
+        private void Authorization()
         {
-            //Forms.view.tableNameLabel.Text = "s";
 
+            if (LoginPage.staffrole == "Admin")
+            {
+                addCusBtn.Visible = false;
+                viewCusBtn.Size = new Size(225, 75);
+                acceptCusBtn.Size = new Size(225, 75);
+                acceptCusBtn.Location = new Point(225, -3);
+                addStaffBtn.Size = new Size(225, 75);
+                addStaffBtn.Location = new Point(450, -3);
+                viewStaffBtn.Size = new Size(225, 75);
+                viewStaffBtn.Location = new Point(675, -3);
+            }
+            else if (LoginPage.staffrole == "Birim Yöneticisi")
+            {
+                addStaffBtn.Visible = false;
+                viewCusBtn.Size = new Size(225, 75);
+                acceptCusBtn.Size = new Size(225, 75);
+                acceptCusBtn.Location = new Point(225, -3);
+                addCusBtn.Size = new Size(225, 75);
+                addCusBtn.Location = new Point(450, -3);
+                viewStaffBtn.Size = new Size(225, 75);
+                viewStaffBtn.Location = new Point(675, -3);
+            }
+            else if (LoginPage.staffrole == "Personel")
+            {
+                addStaffBtn.Visible = false;
+                viewStaffBtn.Visible = false;
+                acceptCusBtn.Visible = false;
+
+                viewCusBtn.Size = new Size(450, 75);
+                addCusBtn.Size = new Size(450, 75);
+                addCusBtn.Location = new Point(450, -3);
+            }
         }
+
 
         private void viewStaffBtn_Click(object sender, EventArgs e)
         {
@@ -97,13 +132,21 @@ namespace staj_proje_ef
             OpenChildForm(new Forms.addemp(), sender);
         }
 
-  
-
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             LoginPage loginPage = new LoginPage();
             loginPage.Show();
             this.Close();
+        }
+
+        private void pageNameLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ProfilePage_Load(object sender, EventArgs e)
+        {
+            Authorization();
         }
     }
 
