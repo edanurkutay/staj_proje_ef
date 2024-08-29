@@ -38,8 +38,10 @@
             label2 = new Label();
             label3 = new Label();
             panel1 = new Panel();
+            pictureBox2 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
@@ -125,17 +127,29 @@
             panel1.Controls.Add(button2);
             panel1.Controls.Add(passwordTxtbox);
             panel1.Controls.Add(button1);
-            panel1.Location = new Point(126, 41);
+            panel1.Location = new Point(92, 12);
             panel1.Name = "panel1";
-            panel1.Size = new Size(316, 517);
+            panel1.Size = new Size(316, 458);
             panel1.TabIndex = 8;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = Properties.Resources.cancel;
+            pictureBox2.Location = new Point(441, 2);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(42, 39);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 9;
+            pictureBox2.TabStop = false;
+            pictureBox2.Click += pictureBox2_Click;
             // 
             // LoginPage
             // 
             AutoScaleDimensions = new SizeF(11F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Azure;
-            ClientSize = new Size(600, 600);
+            ClientSize = new Size(495, 520);
+            Controls.Add(pictureBox2);
             Controls.Add(panel1);
             Font = new Font("Segoe Print", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 162);
             ForeColor = Color.Navy;
@@ -147,6 +161,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
         }
 
@@ -161,5 +176,6 @@
         private Label label2;
         private Label label3;
         private Panel panel1;
+        private PictureBox pictureBox2;
     }
 }

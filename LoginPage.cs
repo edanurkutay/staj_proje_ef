@@ -32,7 +32,7 @@ namespace staj_proje_ef
         {
             try
             {
-                var user = await context.staffs.Include(s => s.unit).Include(r => r.role).Include(j=>j.job).SingleOrDefaultAsync(u => u.username == userNameTxtbox.Text && u.password == passwordTxtbox.Text);
+                var user = await context.staffs.Include(s => s.unit).Include(r => r.role).Include(j => j.job).SingleOrDefaultAsync(u => u.username == userNameTxtbox.Text && u.password == passwordTxtbox.Text);
 
                 if (user != null)
                 {
@@ -62,6 +62,12 @@ namespace staj_proje_ef
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Application.Exit();
         }
     }
 }

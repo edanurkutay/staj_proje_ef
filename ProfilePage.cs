@@ -1,12 +1,16 @@
-﻿using System;
+﻿using Microsoft.Identity.Client;
+using staj_proje_ef.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace staj_proje_ef
 {
@@ -21,6 +25,7 @@ namespace staj_proje_ef
             InitializeComponent();
 
         }
+        viewstaff vp = new Forms.viewstaff();
 
         private void ActivateButton(object btnSender)
         {
@@ -68,7 +73,6 @@ namespace staj_proje_ef
             pageNameLabel.Visible = true;
             pageNameLabel.Text = childForm.Text;
         }
-
         private void Authorization()
         {
 
@@ -106,20 +110,19 @@ namespace staj_proje_ef
             }
         }
 
-
         private void viewStaffBtn_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Forms.viewperson(), sender);
+            OpenChildForm(new Forms.viewstaff(), sender);
         }
 
         private void viewCusBtn_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Forms.viewperson(), sender);
+            OpenChildForm(new Forms.viewcustomer(),sender);
         }
 
         private void acceptCusBtn_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Forms.viewperson(), sender);
+            OpenChildForm(new Forms.acceptcustomer(),sender);
         }
 
         private void addCusBtn_Click(object sender, EventArgs e)
@@ -129,7 +132,7 @@ namespace staj_proje_ef
 
         private void addStaffBtn_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Forms.addemp(), sender);
+            OpenChildForm(new Forms.addstaff(), sender);
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -139,10 +142,7 @@ namespace staj_proje_ef
             this.Close();
         }
 
-        private void pageNameLabel_Click(object sender, EventArgs e)
-        {
-
-        }
+   
 
         private void ProfilePage_Load(object sender, EventArgs e)
         {

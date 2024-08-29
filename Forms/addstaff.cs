@@ -14,9 +14,9 @@ using Azure.Core.Serialization;
 
 namespace staj_proje_ef.Forms
 {
-    public partial class addemp : Form
+    public partial class addstaff : Form
     {
-        public addemp()
+        public addstaff()
         {
             InitializeComponent();
         }

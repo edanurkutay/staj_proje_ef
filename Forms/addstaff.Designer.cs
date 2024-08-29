@@ -1,6 +1,6 @@
 ﻿namespace staj_proje_ef.Forms
 {
-    partial class addemp
+    partial class addstaff
     {
         /// <summary>
         /// Required designer variable.

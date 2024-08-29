@@ -76,7 +76,6 @@
             pageNameLabel.TabIndex = 5;
             pageNameLabel.Text = "Sayfa Adı";
             pageNameLabel.Visible = false;
-            pageNameLabel.Click += pageNameLabel_Click;
             // 
             // settingsButton
             // 
