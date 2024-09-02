@@ -269,10 +269,10 @@
         private Button addStaffBtn;
         private PictureBox exitButton;
         private PictureBox settingsButton;
-        private Label pageNameLabel;
         private Panel mainPanel;
         public Label nameLabel;
         public Label roleLabel;
         public Label unitLabel;
+        public Label pageNameLabel;
     }
 }

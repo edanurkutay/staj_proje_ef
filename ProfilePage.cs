@@ -10,14 +10,14 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+//using  System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace staj_proje_ef
 {
     public partial class ProfilePage : Form
     {
-        private Button currentButton;
-        private Form activeForm;
+        public  Button currentButton;
+        public  Form activeForm;
 
 
         public ProfilePage()
@@ -25,9 +25,9 @@ namespace staj_proje_ef
             InitializeComponent();
 
         }
-        viewstaff vp = new Forms.viewstaff();
-
-        private void ActivateButton(object btnSender)
+        viewstaff vp = new Forms.viewstaff(new addstaff());
+        
+        public void ActivateButton(object btnSender)
         {
             if (btnSender != null)
             {
@@ -42,7 +42,7 @@ namespace staj_proje_ef
                 }
             }
         }
-        private void DisableButton()
+        public void DisableButton()
         {
             foreach (Control previousBtn in btnPanel.Controls)
             {
@@ -55,7 +55,7 @@ namespace staj_proje_ef
                 }
             }
         }
-        private void OpenChildForm(Form childForm, object btnSender)
+        public void OpenChildForm(Form childForm, object btnSender)
         {
             if (activeForm != null)
             {
@@ -112,7 +112,7 @@ namespace staj_proje_ef
 
         private void viewStaffBtn_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Forms.viewstaff(), sender);
+            OpenChildForm(new Forms.viewstaff(new addstaff()), sender);
         }
 
         private void viewCusBtn_Click(object sender, EventArgs e)
@@ -129,21 +129,16 @@ namespace staj_proje_ef
         {
             OpenChildForm(new Forms.addcus(), sender);
         }
-
         private void addStaffBtn_Click(object sender, EventArgs e)
         {
             OpenChildForm(new Forms.addstaff(), sender);
         }
-
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             LoginPage loginPage = new LoginPage();
             loginPage.Show();
             this.Close();
         }
-
-   
-
         private void ProfilePage_Load(object sender, EventArgs e)
         {
             Authorization();

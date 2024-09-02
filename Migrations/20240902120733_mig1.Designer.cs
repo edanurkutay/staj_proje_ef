@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace staj_proje_ef.Migrations
 {
     [DbContext(typeof(CompanySystemContext))]
-    [Migration("20240828115639_mig2")]
-    partial class mig2
+    [Migration("20240902120733_mig1")]
+    partial class mig1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

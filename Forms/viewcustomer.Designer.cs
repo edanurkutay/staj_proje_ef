@@ -45,6 +45,7 @@
             // 
             // dataGridACustomer
             // 
+            dataGridACustomer.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridACustomer.BackgroundColor = Color.LightSlateGray;
             dataGridACustomer.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridACustomer.Location = new Point(21, 48);
@@ -65,6 +66,7 @@
             deleteCusBtn.TabIndex = 11;
             deleteCusBtn.Text = "Müşteri Sil";
             deleteCusBtn.UseVisualStyleBackColor = false;
+            deleteCusBtn.Click += deleteCusBtn_Click;
             // 
             // viewcustomer
             // 

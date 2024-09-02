@@ -104,6 +104,7 @@ namespace staj_proje_ef.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     customername = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     customersurname = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    customertc = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     customertel = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     customerstate = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     email = table.Column<string>(type: "nvarchar(max)", nullable: false),

@@ -32,7 +32,7 @@ namespace staj_proje_ef.Forms
             if (LoginPage.staffrole == "Admin")
             {
                 //4
-                var allcustomers = db.customers.Where(c => c.customerstate == "Onaydan Geçti").ToList();
+                var allcustomers = db.customerInfos.Where(c => c.KayıtDurumu == "Onaydan Geçti").ToList();
                 DataTable dt = new DataTable();
                 dataGridACustomer.DataSource = allcustomers;
             }
@@ -40,18 +40,26 @@ namespace staj_proje_ef.Forms
             else if (LoginPage.staffrole == "Birim Yöneticisi")
             {
                 //3
-                var unitcustomers = db.customers.Where(c => c.customerstate == "Pasif Müşteri" && c.unitId == LoginPage.suId).ToList();
+                var unitcustomers = db.customerInfos.Where(c => c.KayıtDurumu == "Pasif Müşteri" && c.TC == LoginPage.sTC).ToList();
                 DataTable dt1 = new DataTable();
                 dataGridACustomer.DataSource = unitcustomers;
             }
-       
-
         }
 
 
         private void acceptcustomer_Load(object sender, EventArgs e)
         {
             FillTable1();
+        }
+
+        private void acceptCusBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void deleteCusBtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Migrations.Operations;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -30,25 +32,27 @@ namespace staj_proje_ef.Forms
             CompanySystemContext db = new CompanySystemContext();
 
 
-            if(LoginPage.staffrole =="Admin")
+
+            if (LoginPage.staffrole == "Admin")
             {
                 //1
-                var allcustomers = db.customers.Where(c => c.customerstate == "Aktif Müşteri").ToList();
+                
+                var allcustomers1 = db.customerInfos.Where(c => c.KayıtDurumu == "Aktif Müşteri").ToList();
                 DataTable dt = new DataTable();
-                dataGridACustomer.DataSource = allcustomers;
+                dataGridACustomer.DataSource = allcustomers1;
             }
 
-            else if(LoginPage.staffrole == "Birim Yöneticisi")
+            else if (LoginPage.staffrole == "Birim Yöneticisi")
             {
                 //2
-                var unitcustomers = db.customers.Where(c => c.customerstate == "Aktif Müşteri" && c.unitId == LoginPage.suId).ToList();
+                var unitcustomers = db.customerInfos.Where(c => c.KayıtDurumu == "Aktif Müşteri" && c.KayıtBirimi == LoginPage.staffunit).ToList();
                 DataTable dt1 = new DataTable();
                 dataGridACustomer.DataSource = unitcustomers;
             }
             else if (LoginPage.staffrole == "Personel")
             {
                 //5
-                var staffcustomers = db.customers.Where(c => c.staffId == LoginPage.sId).ToList();
+                var staffcustomers = db.customerInfos.Where(c => c.TC == LoginPage.sTC).ToList();
                 DataTable dt4 = new DataTable();
                 dataGridACustomer.DataSource = staffcustomers;
 
@@ -58,6 +62,26 @@ namespace staj_proje_ef.Forms
         private void viewcustomer_Load(object sender, EventArgs e)
         {
             FillTable();
+        }
+
+        public static int selectedId;
+
+        private void deleteCusBtn_Click(object sender, EventArgs e)
+        {
+
+            DialogResult result = new DialogResult();
+
+            selectedId = Convert.ToInt32(dataGridACustomer.CurrentRow.Cells["customerId"].Value);
+
+            result = MessageBox.Show(selectedId+ " Numaralı Müşteri Silinsin mi?", "Müşteri Sil", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+
+            if (result == DialogResult.Yes)
+            {
+
+            }
+
+
         }
     }
 }

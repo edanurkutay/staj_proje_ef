@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace staj_proje_ef.Migrations
 {
     [DbContext(typeof(CompanySystemContext))]
-    [Migration("20240828103039_mig1")]
-    partial class mig1
+    [Migration("20240902121150_mig2")]
+    partial class mig2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -40,6 +40,10 @@ namespace staj_proje_ef.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("customersurname")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("customertc")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

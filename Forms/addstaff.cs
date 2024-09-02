@@ -16,9 +16,16 @@ namespace staj_proje_ef.Forms
 {
     public partial class addstaff : Form
     {
+        Staff model = null;
+
         public addstaff()
         {
             InitializeComponent();
+        }
+        public addstaff(Staff _model)
+        {
+            InitializeComponent();
+            this.model = _model;
         }
 
         private CompanySystemContext db = new CompanySystemContext();
@@ -49,7 +56,7 @@ namespace staj_proje_ef.Forms
 
 
         }
-        async void AddStaff()
+        async void AddData()
         {
             try
             {
@@ -72,6 +79,8 @@ namespace staj_proje_ef.Forms
 
                 MessageBox.Show("Kayıt Başarıyla Oluşturuldu");
 
+                
+
             }
             catch (Exception ex)
             {
@@ -82,7 +91,7 @@ namespace staj_proje_ef.Forms
         }
         private void empRegistBtn_Click(object sender, EventArgs e)
         {
-            AddStaff();
+            AddData();
 
         }
 
@@ -90,13 +99,44 @@ namespace staj_proje_ef.Forms
         {
             FillComboBox();
 
+            if (model != null) {
+
+                unitBox.DataSource = null;
+                unitBox.Items.Clear();
+                tcTxtBox.Visible = false;
+                usernameTxt.Visible = false;
+                passwordTxt.Visible = false;
+                TcLbl.Visible = false;
+                usernameLbl.Visible = false;
+                passwordLbl.Visible = false;
+
+
+                nameTxtBox.Text = model.staffname;
+                surnameTxtBox.Text = model.staffsurname;
+                telTxtBox.Text = model.stafftel;
+                addressTxtBox.Text = model.address;
+
+                //unitBox.Text = model.;
+                
+                //jobBox.Text = model.job.jobname;
+                //roleBox.Text = model.role.rolename;
+            }
+
 
         }
 
         private void unitBox_SelectedValueChanged(object sender, EventArgs e)
         {
+            //jobBox.Items.Clear();
+            //var unitcustomers = db.customers.Where(c => c.customerstate == "Aktif Müşteri" && c.unitId == LoginPage.suId).ToList();
+           
 
-    
+            //var jbox = from a in db.jobs
+            //           join b in db.units
+            //           on a.unitId equals b.unitId  where (a.unitId == deger) select a;
+                  
+           
+
 
         }
     }

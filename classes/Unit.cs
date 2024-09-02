@@ -16,4 +16,5 @@ namespace staj_proje_ef.classes
         public ICollection<Customer> customers { get; set; }
         public ICollection<Job>jobs { get; set; }
     }
+
 }

@@ -31,15 +31,15 @@
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
-            label4 = new Label();
+            TcLbl = new Label();
             label5 = new Label();
-            label6 = new Label();
+            usernameLbl = new Label();
             nameTxtBox = new TextBox();
             surnameTxtBox = new TextBox();
             addressTxtBox = new TextBox();
             usernameTxt = new TextBox();
             passwordTxt = new TextBox();
-            label7 = new Label();
+            passwordLbl = new Label();
             label8 = new Label();
             label9 = new Label();
             label10 = new Label();
@@ -80,14 +80,14 @@
             label3.TabIndex = 2;
             label3.Text = "Tel";
             // 
-            // label4
+            // TcLbl
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(20, 184);
-            label4.Name = "label4";
-            label4.Size = new Size(32, 26);
-            label4.TabIndex = 5;
-            label4.Text = "TC";
+            TcLbl.AutoSize = true;
+            TcLbl.Location = new Point(20, 184);
+            TcLbl.Name = "TcLbl";
+            TcLbl.Size = new Size(32, 26);
+            TcLbl.TabIndex = 5;
+            TcLbl.Text = "TC";
             // 
             // label5
             // 
@@ -98,14 +98,14 @@
             label5.TabIndex = 4;
             label5.Text = "Adres";
             // 
-            // label6
+            // usernameLbl
             // 
-            label6.AutoSize = true;
-            label6.Location = new Point(350, 192);
-            label6.Name = "label6";
-            label6.Size = new Size(107, 26);
-            label6.TabIndex = 3;
-            label6.Text = "Kullanıcı Adı";
+            usernameLbl.AutoSize = true;
+            usernameLbl.Location = new Point(350, 192);
+            usernameLbl.Name = "usernameLbl";
+            usernameLbl.Size = new Size(107, 26);
+            usernameLbl.TabIndex = 3;
+            usernameLbl.Text = "Kullanıcı Adı";
             // 
             // nameTxtBox
             // 
@@ -143,14 +143,14 @@
             passwordTxt.Size = new Size(185, 34);
             passwordTxt.TabIndex = 13;
             // 
-            // label7
+            // passwordLbl
             // 
-            label7.AutoSize = true;
-            label7.Location = new Point(356, 245);
-            label7.Name = "label7";
-            label7.Size = new Size(48, 26);
-            label7.TabIndex = 12;
-            label7.Text = "Şifre";
+            passwordLbl.AutoSize = true;
+            passwordLbl.Location = new Point(356, 245);
+            passwordLbl.Name = "passwordLbl";
+            passwordLbl.Size = new Size(48, 26);
+            passwordLbl.TabIndex = 12;
+            passwordLbl.Text = "Şifre";
             // 
             // label8
             // 
@@ -226,14 +226,14 @@
             panel1.Controls.Add(label9);
             panel1.Controls.Add(label10);
             panel1.Controls.Add(passwordTxt);
-            panel1.Controls.Add(label7);
+            panel1.Controls.Add(passwordLbl);
             panel1.Controls.Add(usernameTxt);
             panel1.Controls.Add(addressTxtBox);
             panel1.Controls.Add(surnameTxtBox);
             panel1.Controls.Add(nameTxtBox);
-            panel1.Controls.Add(label4);
+            panel1.Controls.Add(TcLbl);
             panel1.Controls.Add(label5);
-            panel1.Controls.Add(label6);
+            panel1.Controls.Add(usernameLbl);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(label1);
@@ -259,7 +259,7 @@
             tcTxtBox.TabIndex = 23;
             tcTxtBox.ValidatingType = typeof(int);
             // 
-            // addemp
+            // addstaff
             // 
             AutoScaleDimensions = new SizeF(10F, 26F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -269,7 +269,7 @@
             Font = new Font("Segoe Print", 9F, FontStyle.Regular, GraphicsUnit.Point, 162);
             ForeColor = Color.Navy;
             Margin = new Padding(4);
-            Name = "addemp";
+            Name = "addstaff";
             Text = "Personel Ekle";
             Load += addemp_Load;
             panel1.ResumeLayout(false);
@@ -282,24 +282,24 @@
         private Label label1;
         private Label label2;
         private Label label3;
-        private Label label4;
+        private Label TcLbl;
         private Label label5;
-        private Label label6;
-        private TextBox nameTxtBox;
-        private TextBox surnameTxtBox;
-        private TextBox addressTxtBox;
-        private TextBox usernameTxt;
-        private TextBox passwordTxt;
-        private Label label7;
+        private Label usernameLbl;
+        private Label passwordLbl;
         private Label label8;
         private Label label9;
         private Label label10;
-        private ComboBox unitBox;
-        private ComboBox jobBox;
-        private ComboBox roleBox;
         private Button empRegistBtn;
         private Panel panel1;
-        private MaskedTextBox telTxtBox;
-        private MaskedTextBox tcTxtBox;
+        public TextBox nameTxtBox;
+        public TextBox surnameTxtBox;
+        public TextBox addressTxtBox;
+        public TextBox usernameTxt;
+        public TextBox passwordTxt;
+        public ComboBox unitBox;
+        public ComboBox jobBox;
+        public ComboBox roleBox;
+        public MaskedTextBox telTxtBox;
+        public MaskedTextBox tcTxtBox;
     }
 }

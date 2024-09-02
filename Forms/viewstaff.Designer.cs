@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             deleteCusBtn = new Button();
-            acceptCusBtn = new Button();
+            updateBtn = new Button();
             label1 = new Label();
             dataGridStaff = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)dataGridStaff).BeginInit();
@@ -48,19 +48,19 @@
             deleteCusBtn.Text = "Personel Sil";
             deleteCusBtn.UseVisualStyleBackColor = false;
             // 
-            // acceptCusBtn
+            // updateBtn
             // 
-            acceptCusBtn.BackColor = Color.Lavender;
-            acceptCusBtn.FlatAppearance.BorderSize = 0;
-            acceptCusBtn.FlatStyle = FlatStyle.Flat;
-            acceptCusBtn.Font = new Font("Segoe Print", 9F);
-            acceptCusBtn.Location = new Point(526, 341);
-            acceptCusBtn.Name = "acceptCusBtn";
-            acceptCusBtn.Size = new Size(156, 65);
-            acceptCusBtn.TabIndex = 7;
-            acceptCusBtn.Text = "Bilgileri Güncelle";
-            acceptCusBtn.UseVisualStyleBackColor = false;
-            acceptCusBtn.Click += acceptCusBtn_Click;
+            updateBtn.BackColor = Color.Lavender;
+            updateBtn.FlatAppearance.BorderSize = 0;
+            updateBtn.FlatStyle = FlatStyle.Flat;
+            updateBtn.Font = new Font("Segoe Print", 9F);
+            updateBtn.Location = new Point(526, 341);
+            updateBtn.Name = "updateBtn";
+            updateBtn.Size = new Size(156, 65);
+            updateBtn.TabIndex = 7;
+            updateBtn.Text = "Bilgileri Güncelle";
+            updateBtn.UseVisualStyleBackColor = false;
+            updateBtn.Click += updateBtn_Click;
             // 
             // label1
             // 
@@ -74,6 +74,7 @@
             // 
             // dataGridStaff
             // 
+            dataGridStaff.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridStaff.BackgroundColor = Color.LightSlateGray;
             dataGridStaff.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridStaff.Location = new Point(21, 48);
@@ -81,6 +82,7 @@
             dataGridStaff.RowHeadersWidth = 51;
             dataGridStaff.Size = new Size(835, 278);
             dataGridStaff.TabIndex = 9;
+            dataGridStaff.SelectionChanged += dataGridStaff_SelectionChanged;
             // 
             // viewstaff
             // 
@@ -90,7 +92,7 @@
             ClientSize = new Size(882, 409);
             Controls.Add(label1);
             Controls.Add(dataGridStaff);
-            Controls.Add(acceptCusBtn);
+            Controls.Add(updateBtn);
             Controls.Add(deleteCusBtn);
             Font = new Font("Segoe Print", 9F, FontStyle.Regular, GraphicsUnit.Point, 162);
             ForeColor = Color.Navy;
@@ -105,7 +107,7 @@
 
         #endregion
         public Button deleteCusBtn;
-        public Button acceptCusBtn;
+        public Button updateBtn;
         private Label label1;
         private DataGridView dataGridStaff;
     }

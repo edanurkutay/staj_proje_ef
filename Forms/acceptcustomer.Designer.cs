@@ -47,6 +47,7 @@
             acceptCusBtn.TabIndex = 19;
             acceptCusBtn.Text = "Müşteri Onayla";
             acceptCusBtn.UseVisualStyleBackColor = false;
+            acceptCusBtn.Click += acceptCusBtn_Click;
             // 
             // label1
             // 
@@ -59,6 +60,7 @@
             // 
             // dataGridACustomer
             // 
+            dataGridACustomer.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridACustomer.BackgroundColor = Color.LightSlateGray;
             dataGridACustomer.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridACustomer.Location = new Point(21, 48);
@@ -79,6 +81,7 @@
             deleteCusBtn.TabIndex = 16;
             deleteCusBtn.Text = "Müşteri Sil";
             deleteCusBtn.UseVisualStyleBackColor = false;
+            deleteCusBtn.Click += deleteCusBtn_Click;
             // 
             // acceptcustomer
             // 

@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.SqlServer;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,7 +28,7 @@ namespace staj_proje_ef
         public static string staffunit;
         public static int sId;
         public static int suId;
-
+        public static string sTC;
         private async void button2_Click(object sender, EventArgs e)
         {
             try
@@ -42,6 +43,7 @@ namespace staj_proje_ef
                     staffunit = user.unit.unitname;
                     sId = user.staffId;
                     suId = user.unitId;
+                    sTC = user.stafftc;
                     profilePage.roleLabel.Text = staffrole;
                     profilePage.unitLabel.Text = staffunit;
                     profilePage.Show();
@@ -62,6 +64,7 @@ namespace staj_proje_ef
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+            Application.Exit();
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
