@@ -35,6 +35,8 @@ namespace staj_proje_ef.Forms
             };
             await db.AddAsync(customer);
             await db.SaveChangesAsync();
+            MessageBox.Show("Kayıt Başarıyla Oluşturuldu");
+
         }
     }
 }

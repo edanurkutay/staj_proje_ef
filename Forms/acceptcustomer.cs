@@ -1,4 +1,5 @@
-﻿using System;
+﻿using staj_proje_ef.classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,6 +17,7 @@ namespace staj_proje_ef.Forms
         {
             InitializeComponent();
         }
+        CompanySystemContext db = new CompanySystemContext();
 
         public void FillTable1()
         {
@@ -26,7 +28,6 @@ namespace staj_proje_ef.Forms
             //4 Birim Yöneticisi onayından geçmiş müşterlier listelenecek - Admin
             //5 Personel özeli müşteriler listelenecek - Personel
 
-            CompanySystemContext db = new CompanySystemContext();
 
 
             if (LoginPage.staffrole == "Admin")
@@ -40,7 +41,7 @@ namespace staj_proje_ef.Forms
             else if (LoginPage.staffrole == "Birim Yöneticisi")
             {
                 //3
-                var unitcustomers = db.customerInfos.Where(c => c.KayıtDurumu == "Pasif Müşteri" && c.TC == LoginPage.sTC).ToList();
+                var unitcustomers = db.customerInfos.Where(c => c.KayıtDurumu == "Pasif Müşteri" && c.KayıtBirimi == LoginPage.staffunit).ToList();
                 DataTable dt1 = new DataTable();
                 dataGridACustomer.DataSource = unitcustomers;
             }
@@ -52,9 +53,32 @@ namespace staj_proje_ef.Forms
             FillTable1();
         }
 
-        private void acceptCusBtn_Click(object sender, EventArgs e)
+        private async void acceptCusBtn_Click(object sender, EventArgs e)
         {
+            int selectedId;
+            DialogResult result = new DialogResult();
 
+            selectedId = Convert.ToInt32(dataGridACustomer.CurrentRow.Cells["MüşteriNo"].Value);
+
+            result = MessageBox.Show(selectedId + " Numaralı Müşteri Eklensin mi?", "Müşteri Onayla", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                Customer acptcus = await db.customers.FindAsync(selectedId);
+
+                if (LoginPage.staffrole=="Birim Yöneticisi")
+                {
+                    acptcus.customerstate = "Onaydan Geçti";
+                }
+                else if(LoginPage.staffrole =="Admin")
+                {
+                    acptcus.customerstate = "Aktif Müşteri";
+
+                }
+            }
+            else
+            {
+
+            }
         }
 
         private void deleteCusBtn_Click(object sender, EventArgs e)

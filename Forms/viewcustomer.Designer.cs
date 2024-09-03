@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            dataGridACustomer = new DataGridView();
+            dataGridVCustomer = new DataGridView();
             deleteCusBtn = new Button();
-            ((System.ComponentModel.ISupportInitialize)dataGridACustomer).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridVCustomer).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -43,16 +43,16 @@
             label1.TabIndex = 14;
             label1.Text = "Müşteri Tablosu";
             // 
-            // dataGridACustomer
+            // dataGridVCustomer
             // 
-            dataGridACustomer.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridACustomer.BackgroundColor = Color.LightSlateGray;
-            dataGridACustomer.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridACustomer.Location = new Point(21, 48);
-            dataGridACustomer.Name = "dataGridACustomer";
-            dataGridACustomer.RowHeadersWidth = 51;
-            dataGridACustomer.Size = new Size(835, 278);
-            dataGridACustomer.TabIndex = 13;
+            dataGridVCustomer.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridVCustomer.BackgroundColor = Color.LightSlateGray;
+            dataGridVCustomer.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridVCustomer.Location = new Point(21, 48);
+            dataGridVCustomer.Name = "dataGridVCustomer";
+            dataGridVCustomer.RowHeadersWidth = 51;
+            dataGridVCustomer.Size = new Size(835, 278);
+            dataGridVCustomer.TabIndex = 13;
             // 
             // deleteCusBtn
             // 
@@ -75,7 +75,7 @@
             BackColor = Color.Azure;
             ClientSize = new Size(882, 409);
             Controls.Add(label1);
-            Controls.Add(dataGridACustomer);
+            Controls.Add(dataGridVCustomer);
             Controls.Add(deleteCusBtn);
             Font = new Font("Segoe Print", 9F, FontStyle.Regular, GraphicsUnit.Point, 162);
             ForeColor = Color.Navy;
@@ -83,7 +83,7 @@
             Name = "viewcustomer";
             Text = "Müşteriler";
             Load += viewcustomer_Load;
-            ((System.ComponentModel.ISupportInitialize)dataGridACustomer).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridVCustomer).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -91,7 +91,7 @@
         #endregion
 
         private Label label1;
-        private DataGridView dataGridACustomer;
+        private DataGridView dataGridVCustomer;
         public Button deleteCusBtn;
     }
 }

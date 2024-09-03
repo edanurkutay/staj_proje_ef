@@ -23,11 +23,11 @@ namespace staj_proje_ef.Forms
         public void FillTable()
         {
 
-            //1 Tüm Aktif Müşteriler Listelenecek - Admin
-            //2 Birimlerdeki Aktif Müşteriler Listelenecek - BY
-            //3 Birimlerdeki Pasif Müşteriler listelenecek - BY
-            //4 Birim Yöneticisi onayından geçmiş müşterlier listelenecek - Admin
-            //5 Personel özeli müşteriler listelenecek - Personel
+            //1 Tüm Aktif Müşteriler Listelenecek -Admin
+            //2 Birimlerdeki Aktif Müşteriler Listelenecek -BY
+            //3 Birimlerdeki Pasif Müşteriler listelenecek -BY
+            //4 Birim Yöneticisi onayından geçmiş müşterlier listelenecek -Admin
+            //5 Personel özeli müşteriler listelenecek -Personel
 
             CompanySystemContext db = new CompanySystemContext();
 
@@ -36,10 +36,10 @@ namespace staj_proje_ef.Forms
             if (LoginPage.staffrole == "Admin")
             {
                 //1
-                
+
                 var allcustomers1 = db.customerInfos.Where(c => c.KayıtDurumu == "Aktif Müşteri").ToList();
                 DataTable dt = new DataTable();
-                dataGridACustomer.DataSource = allcustomers1;
+                dataGridVCustomer.DataSource = allcustomers1;
             }
 
             else if (LoginPage.staffrole == "Birim Yöneticisi")
@@ -47,14 +47,14 @@ namespace staj_proje_ef.Forms
                 //2
                 var unitcustomers = db.customerInfos.Where(c => c.KayıtDurumu == "Aktif Müşteri" && c.KayıtBirimi == LoginPage.staffunit).ToList();
                 DataTable dt1 = new DataTable();
-                dataGridACustomer.DataSource = unitcustomers;
+                dataGridVCustomer.DataSource = unitcustomers;
             }
             else if (LoginPage.staffrole == "Personel")
             {
                 //5
                 var staffcustomers = db.customerInfos.Where(c => c.TC == LoginPage.sTC).ToList();
                 DataTable dt4 = new DataTable();
-                dataGridACustomer.DataSource = staffcustomers;
+                dataGridVCustomer.DataSource = staffcustomers;
 
             }
         }
@@ -71,7 +71,7 @@ namespace staj_proje_ef.Forms
 
             DialogResult result = new DialogResult();
 
-            selectedId = Convert.ToInt32(dataGridACustomer.CurrentRow.Cells["customerId"].Value);
+            selectedId = Convert.ToInt32(dataGridVCustomer.CurrentRow.Cells["customerId"].Value);
 
             result = MessageBox.Show(selectedId+ " Numaralı Müşteri Silinsin mi?", "Müşteri Sil", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 

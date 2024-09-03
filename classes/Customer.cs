@@ -23,6 +23,6 @@ namespace staj_proje_ef.classes
         //İlişkiler
         public Staff staff { get; set; }
         public Unit unit { get; set; }
-
+        
     }
 }
