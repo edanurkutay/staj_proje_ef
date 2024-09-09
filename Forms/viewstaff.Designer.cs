@@ -28,25 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            deleteCusBtn = new Button();
+            deleteStaffBtn = new Button();
             updateBtn = new Button();
             label1 = new Label();
             dataGridStaff = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)dataGridStaff).BeginInit();
             SuspendLayout();
             // 
-            // deleteCusBtn
+            // deleteStaffBtn
             // 
-            deleteCusBtn.BackColor = Color.Lavender;
-            deleteCusBtn.FlatAppearance.BorderSize = 0;
-            deleteCusBtn.FlatStyle = FlatStyle.Flat;
-            deleteCusBtn.Font = new Font("Segoe Print", 9F);
-            deleteCusBtn.Location = new Point(700, 341);
-            deleteCusBtn.Name = "deleteCusBtn";
-            deleteCusBtn.Size = new Size(156, 65);
-            deleteCusBtn.TabIndex = 5;
-            deleteCusBtn.Text = "Personel Sil";
-            deleteCusBtn.UseVisualStyleBackColor = false;
+            deleteStaffBtn.BackColor = Color.Lavender;
+            deleteStaffBtn.FlatAppearance.BorderSize = 0;
+            deleteStaffBtn.FlatStyle = FlatStyle.Flat;
+            deleteStaffBtn.Font = new Font("Segoe Print", 9F);
+            deleteStaffBtn.Location = new Point(700, 341);
+            deleteStaffBtn.Name = "deleteStaffBtn";
+            deleteStaffBtn.Size = new Size(156, 65);
+            deleteStaffBtn.TabIndex = 5;
+            deleteStaffBtn.Text = "Personel Sil";
+            deleteStaffBtn.UseVisualStyleBackColor = false;
+            deleteStaffBtn.Click += deleteStaffBtn_Click;
             // 
             // updateBtn
             // 
@@ -70,7 +71,6 @@
             label1.Size = new Size(136, 26);
             label1.TabIndex = 10;
             label1.Text = "Personel Tablosu";
-            label1.Click += label1_Click;
             // 
             // dataGridStaff
             // 
@@ -82,7 +82,6 @@
             dataGridStaff.RowHeadersWidth = 51;
             dataGridStaff.Size = new Size(835, 278);
             dataGridStaff.TabIndex = 9;
-            dataGridStaff.SelectionChanged += dataGridStaff_SelectionChanged;
             // 
             // viewstaff
             // 
@@ -93,7 +92,7 @@
             Controls.Add(label1);
             Controls.Add(dataGridStaff);
             Controls.Add(updateBtn);
-            Controls.Add(deleteCusBtn);
+            Controls.Add(deleteStaffBtn);
             Font = new Font("Segoe Print", 9F, FontStyle.Regular, GraphicsUnit.Point, 162);
             ForeColor = Color.Navy;
             Margin = new Padding(4);
@@ -106,7 +105,7 @@
         }
 
         #endregion
-        public Button deleteCusBtn;
+        public Button deleteStaffBtn;
         public Button updateBtn;
         private Label label1;
         private DataGridView dataGridStaff;

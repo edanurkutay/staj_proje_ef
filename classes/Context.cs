@@ -11,6 +11,8 @@ public class CompanySystemContext : DbContext
     public DbSet<Job> jobs { get; set; }
     public DbSet<StaffInfo> staffInfos { get; set; }
     public DbSet<CustomerInfo> customerInfos { get; set; }
+    public DbSet<JobInfo> jobInfos { get; set; }
+
 
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -26,6 +28,9 @@ public class CompanySystemContext : DbContext
         modelBuilder.Entity<CustomerInfo>()
           .ToView("vm_CustomerInfo")
           .HasNoKey();
+        modelBuilder.Entity<JobInfo>()
+            .ToView("vm_JobInfo")
+            .HasNoKey();
     }
 
 

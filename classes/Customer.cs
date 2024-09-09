@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +9,7 @@ namespace staj_proje_ef.classes
 {
     public class Customer
     {
+        
         public int customerId { get; set; }
         public string customername { get; set; }
         public string customersurname { get; set; }

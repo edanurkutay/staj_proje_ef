@@ -72,12 +72,18 @@ namespace staj_proje_ef
             this.Close();
             Application.Exit();
         }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (passwordShow.Checked == true)
+            {
+                passwordTxtbox.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                passwordTxtbox.UseSystemPasswordChar = true;
+            }
+        }
     }
 }
 
-
-
-
-/*var blogs = context.Blogs
-    .Include(blog => blog.Posts)
-    .ToList();*/

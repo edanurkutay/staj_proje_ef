@@ -38,6 +38,7 @@
             label2 = new Label();
             label3 = new Label();
             panel1 = new Panel();
+            passwordShow = new CheckBox();
             pictureBox2 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
@@ -47,7 +48,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(87, 92);
+            pictureBox1.Location = new Point(87, 78);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(140, 124);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -57,7 +58,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(71, 50);
+            label1.Location = new Point(71, 36);
             label1.Name = "label1";
             label1.Size = new Size(182, 30);
             label1.TabIndex = 1;
@@ -65,21 +66,22 @@
             // 
             // userNameTxtbox
             // 
-            userNameTxtbox.Location = new Point(71, 264);
+            userNameTxtbox.Location = new Point(71, 250);
             userNameTxtbox.Name = "userNameTxtbox";
             userNameTxtbox.Size = new Size(179, 38);
             userNameTxtbox.TabIndex = 2;
             // 
             // passwordTxtbox
             // 
-            passwordTxtbox.Location = new Point(71, 334);
+            passwordTxtbox.Location = new Point(71, 320);
             passwordTxtbox.Name = "passwordTxtbox";
             passwordTxtbox.Size = new Size(179, 38);
             passwordTxtbox.TabIndex = 3;
+            passwordTxtbox.UseSystemPasswordChar = true;
             // 
             // button1
             // 
-            button1.Location = new Point(72, 396);
+            button1.Location = new Point(72, 397);
             button1.Name = "button1";
             button1.Size = new Size(75, 41);
             button1.TabIndex = 4;
@@ -89,7 +91,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(174, 396);
+            button2.Location = new Point(174, 397);
             button2.Name = "button2";
             button2.Size = new Size(75, 41);
             button2.TabIndex = 5;
@@ -101,7 +103,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe Print", 7.8F);
-            label2.Location = new Point(72, 242);
+            label2.Location = new Point(72, 228);
             label2.Name = "label2";
             label2.Size = new Size(96, 23);
             label2.TabIndex = 6;
@@ -111,7 +113,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe Print", 7.8F);
-            label3.Location = new Point(72, 312);
+            label3.Location = new Point(72, 298);
             label3.Name = "label3";
             label3.Size = new Size(41, 23);
             label3.TabIndex = 7;
@@ -119,6 +121,7 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(passwordShow);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(pictureBox1);
@@ -131,6 +134,18 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(316, 458);
             panel1.TabIndex = 8;
+            // 
+            // passwordShow
+            // 
+            passwordShow.AutoSize = true;
+            passwordShow.Font = new Font("Segoe Print", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            passwordShow.Location = new Point(130, 364);
+            passwordShow.Name = "passwordShow";
+            passwordShow.Size = new Size(123, 27);
+            passwordShow.TabIndex = 10;
+            passwordShow.Text = "Şifreyi Göster";
+            passwordShow.UseVisualStyleBackColor = true;
+            passwordShow.CheckedChanged += checkBox1_CheckedChanged;
             // 
             // pictureBox2
             // 
@@ -177,5 +192,6 @@
         private Label label3;
         private Panel panel1;
         private PictureBox pictureBox2;
+        private CheckBox passwordShow;
     }
 }

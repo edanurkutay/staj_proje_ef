@@ -13,9 +13,9 @@ namespace staj_proje_ef.Migrations
             migrationBuilder.Sql($@"
                 CREATE VIEW vm_CustomerInfo
                 AS
-                SELECT customerId AS 'MüşteriNo',customername AS 'Ad',customersurname AS 'Soyad',customerstate AS KayıtDurumu, unitname AS 'KayıtBirimi', staffname AS 'PersonelAd',staffsurname AS 'PersonelSoyad', email AS 'Mail' ,customertel AS 'Tel', customertc AS 'TC'
+                SELECT customerId AS 'MüşteriNo',customername AS 'Ad',customersurname AS 'Soyad',customerstate AS KayıtDurumu, unitname AS 'KayıtBirimi',s.staffId AS 'PersonelNo', staffname AS 'PersonelAd',staffsurname AS 'PersonelSoyad',  email AS 'Mail' ,customertel AS 'Tel', customertc AS 'TC'
                 FROM customers c inner join units u ON c.unitId = u.unitId 
-                              inner join staffs s ON  c.staffId =s.staffId
+                inner join staffs s ON  c.staffId =s.staffId
                    
             ");
         }

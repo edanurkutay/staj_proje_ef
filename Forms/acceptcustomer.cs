@@ -1,4 +1,5 @@
-﻿using staj_proje_ef.classes;
+﻿using Microsoft.EntityFrameworkCore;
+using staj_proje_ef.classes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,14 +22,11 @@ namespace staj_proje_ef.Forms
 
         public void FillTable1()
         {
-
             //1 Tüm Aktif Müşteriler Listelenecek - Admin
             //2 Birimlerdeki Aktif Müşteriler Listelenecek - BY
             //3 Birimlerdeki Pasif Müşteriler listelenecek - BY
             //4 Birim Yöneticisi onayından geçmiş müşterlier listelenecek - Admin
             //5 Personel özeli müşteriler listelenecek - Personel
-
-
 
             if (LoginPage.staffrole == "Admin")
             {
@@ -52,17 +50,18 @@ namespace staj_proje_ef.Forms
         {
             FillTable1();
         }
+        int selectedId;
 
         private async void acceptCusBtn_Click(object sender, EventArgs e)
         {
-            int selectedId;
-            DialogResult result = new DialogResult();
-
             selectedId = Convert.ToInt32(dataGridACustomer.CurrentRow.Cells["MüşteriNo"].Value);
-
+            DialogResult result = new DialogResult();
             result = MessageBox.Show(selectedId + " Numaralı Müşteri Eklensin mi?", "Müşteri Onayla", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+
             if (result == DialogResult.Yes)
             {
+
                 Customer acptcus = await db.customers.FindAsync(selectedId);
 
                 if (LoginPage.staffrole=="Birim Yöneticisi")
@@ -72,8 +71,8 @@ namespace staj_proje_ef.Forms
                 else if(LoginPage.staffrole =="Admin")
                 {
                     acptcus.customerstate = "Aktif Müşteri";
-
                 }
+                db.SaveChanges();
             }
             else
             {
@@ -81,8 +80,18 @@ namespace staj_proje_ef.Forms
             }
         }
 
-        private void deleteCusBtn_Click(object sender, EventArgs e)
+        private async void deleteCusBtn_Click(object sender, EventArgs e)
         {
+            selectedId = Convert.ToInt32(dataGridACustomer.CurrentRow.Cells["MüşteriNo"].Value);
+            DialogResult result = new DialogResult();
+            result = MessageBox.Show(selectedId + " Numaralı Müşteri Silinsin mi?", "Müşteri Sil", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                Customer delcus = await db.customers.FindAsync(selectedId);
+                db.customers.Remove(delcus);
+                db.SaveChanges();
+            }
 
         }
     }

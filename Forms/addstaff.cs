@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.SqlServer;
 using Azure.Core.Serialization;
+using System.Net;
 
 namespace staj_proje_ef.Forms
 {
@@ -38,10 +39,8 @@ namespace staj_proje_ef.Forms
                 unitBox.DisplayMember = "unitname";
                 unitBox.ValueMember = "unitId";
 
-                var jobList = db.jobs.ToList();
-                jobBox.DataSource = jobList.ToList();
-                jobBox.DisplayMember = "jobname";
-                jobBox.ValueMember = "jobId";
+                //var jobList = db.jobs.ToList();
+                //
 
                 var roleList = db.roles.ToList();
                 roleBox.DataSource = roleList;
@@ -78,16 +77,11 @@ namespace staj_proje_ef.Forms
                 await db.SaveChangesAsync();
 
                 MessageBox.Show("Kayıt Başarıyla Oluşturuldu");
-
-                
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-
-
         }
         private void empRegistBtn_Click(object sender, EventArgs e)
         {
@@ -95,14 +89,17 @@ namespace staj_proje_ef.Forms
 
         }
 
-        private void addemp_Load(object sender, EventArgs e)
+        private void addstaff_Load(object sender, EventArgs e)
         {
             FillComboBox();
 
-            if (model != null) {
+            if (model != null)
+            {
 
-                unitBox.DataSource = null;
-                unitBox.Items.Clear();
+                empRegistBtn.Visible = false;
+                updateBtn.Visible = true;
+
+
                 tcTxtBox.Visible = false;
                 usernameTxt.Visible = false;
                 passwordTxt.Visible = false;
@@ -116,27 +113,72 @@ namespace staj_proje_ef.Forms
                 telTxtBox.Text = model.stafftel;
                 addressTxtBox.Text = model.address;
 
-                //unitBox.Text = model.;
-                
-                //jobBox.Text = model.job.jobname;
-                //roleBox.Text = model.role.rolename;
-            }
 
+                unitBox.SelectedValue = model.unitId;
+
+                unitBox_SelectionChangeCommitted(null, null);
+                jobBox.SelectedValue = model.jobId;
+                roleBox.SelectedValue = model.roleId;
+
+
+            }
+            else
+            {
+                unitBox.SelectedIndex = -1;
+            }
 
         }
 
         private void unitBox_SelectedValueChanged(object sender, EventArgs e)
         {
-            //jobBox.Items.Clear();
-            //var unitcustomers = db.customers.Where(c => c.customerstate == "Aktif Müşteri" && c.unitId == LoginPage.suId).ToList();
-           
+            object b = null;
+            if (unitBox.SelectedValue.GetType() == typeof(int))
+            {
+                b = unitBox.SelectedValue;
+            }
+            else
+            {
+                Unit a = (Unit)unitBox.SelectedValue;
+                b = a.unitId;
+            }
 
-            //var jbox = from a in db.jobs
-            //           join b in db.units
-            //           on a.unitId equals b.unitId  where (a.unitId == deger) select a;
-                  
-           
 
+            var juInfo = db.jobInfos.Where(j => j.unitId == Convert.ToInt32(b));
+            jobBox.DataSource = juInfo.ToList();
+            jobBox.DisplayMember = "jobname";
+            jobBox.ValueMember = "unitId";
+        }
+
+        private void updateBtn_Click(object sender, EventArgs e)
+        {
+            if (model != null)
+            {
+                int s = model.staffId;
+
+                Staff updateStaff = db.staffs.Find(s);
+                updateStaff.staffname = nameTxtBox.Text;
+                updateStaff.staffsurname = surnameTxtBox.Text;
+                updateStaff.stafftel = telTxtBox.Text;
+                updateStaff.address = addressTxtBox.Text;
+                updateStaff.unitId = (int)unitBox.SelectedValue;
+                updateStaff.jobId = (int)jobBox.SelectedValue;
+                updateStaff.roleId = (int)roleBox.SelectedValue;
+                db.SaveChanges();
+            }
+        }
+
+        private void unitBox_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if (unitBox.SelectedValue == null)
+                return;
+
+            int b = (int)unitBox.SelectedValue;
+
+
+            var juInfo = db.jobInfos.Where(j => j.unitId == b);
+            jobBox.DataSource = juInfo.ToList();
+            jobBox.DisplayMember = "jobname";
+            jobBox.ValueMember = "jobId";
 
         }
     }

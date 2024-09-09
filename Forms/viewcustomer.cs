@@ -1,6 +1,7 @@
 ﻿using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations.Operations;
+using staj_proje_ef.classes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,6 +20,7 @@ namespace staj_proje_ef.Forms
         {
             InitializeComponent();
         }
+        CompanySystemContext db = new CompanySystemContext();
 
         public void FillTable()
         {
@@ -29,7 +31,6 @@ namespace staj_proje_ef.Forms
             //4 Birim Yöneticisi onayından geçmiş müşterlier listelenecek -Admin
             //5 Personel özeli müşteriler listelenecek -Personel
 
-            CompanySystemContext db = new CompanySystemContext();
 
 
 
@@ -52,7 +53,7 @@ namespace staj_proje_ef.Forms
             else if (LoginPage.staffrole == "Personel")
             {
                 //5
-                var staffcustomers = db.customerInfos.Where(c => c.TC == LoginPage.sTC).ToList();
+                var staffcustomers = db.customerInfos.Where(c => c.PersonelNo == LoginPage.sId).ToList();
                 DataTable dt4 = new DataTable();
                 dataGridVCustomer.DataSource = staffcustomers;
 
@@ -62,22 +63,30 @@ namespace staj_proje_ef.Forms
         private void viewcustomer_Load(object sender, EventArgs e)
         {
             FillTable();
+
+            if (LoginPage.staffrole == "Personel")
+            {
+                deleteCusBtn.Visible= false;
+            }
         }
 
         public static int selectedId;
 
-        private void deleteCusBtn_Click(object sender, EventArgs e)
+        private async void deleteCusBtn_Click(object sender, EventArgs e)
         {
 
             DialogResult result = new DialogResult();
 
-            selectedId = Convert.ToInt32(dataGridVCustomer.CurrentRow.Cells["customerId"].Value);
+            selectedId = Convert.ToInt32(dataGridVCustomer.CurrentRow.Cells["Müşteri No"].Value);
 
             result = MessageBox.Show(selectedId+ " Numaralı Müşteri Silinsin mi?", "Müşteri Sil", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
 
             if (result == DialogResult.Yes)
             {
+                Customer delcus = await db.customers.FindAsync(selectedId);
+                delcus.customerstate = "Pasif Müşteri";
+                db.SaveChanges();
 
             }
 

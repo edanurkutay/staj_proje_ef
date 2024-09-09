@@ -54,8 +54,8 @@
             // panel1
             // 
             panel1.BackColor = Color.MidnightBlue;
-            panel1.Controls.Add(pageNameLabel);
             panel1.Controls.Add(settingsButton);
+            panel1.Controls.Add(pageNameLabel);
             panel1.Controls.Add(exitButton);
             panel1.Controls.Add(nameLabel);
             panel1.Controls.Add(roleLabel);
@@ -79,13 +79,15 @@
             // 
             // settingsButton
             // 
+            settingsButton.AccessibleRole = AccessibleRole.ButtonMenu;
             settingsButton.Image = (Image)resources.GetObject("settingsButton.Image");
-            settingsButton.Location = new Point(762, 12);
+            settingsButton.Location = new Point(761, 12);
             settingsButton.Name = "settingsButton";
             settingsButton.Size = new Size(42, 41);
             settingsButton.SizeMode = PictureBoxSizeMode.StretchImage;
             settingsButton.TabIndex = 4;
             settingsButton.TabStop = false;
+            settingsButton.Click += settingsButton_Click;
             // 
             // exitButton
             // 

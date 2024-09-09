@@ -24,14 +24,10 @@ namespace staj_proje_ef.Forms
             this.frm1 = _updatestf;
         }
 
-
-
         CompanySystemContext db = new CompanySystemContext();
-
 
         private async void viewperson_Load(object sender, EventArgs e)
         {
-
             if (LoginPage.staffrole == "Admin")
             {
                 var stafflst = db.staffInfos.ToList();
@@ -40,21 +36,18 @@ namespace staj_proje_ef.Forms
             }
             else if (LoginPage.staffrole == "Birim Yöneticisi")
             {
+                deleteStaffBtn.Visible = false;
+
                 var stafflst1 = db.staffInfos
                     .Where(us => us.Birim == LoginPage.staffunit).ToList();
                 DataTable dt = new DataTable();
                 dataGridStaff.DataSource = stafflst1;
             }
         }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
+        int selectedId;
 
         private async void updateBtn_Click(object sender, EventArgs e)
         {
-            int selectedId;
             DialogResult result = new DialogResult();
 
             selectedId = Convert.ToInt32(dataGridStaff.CurrentRow.Cells["PersonelNo"].Value);
@@ -65,26 +58,28 @@ namespace staj_proje_ef.Forms
             if (result == DialogResult.Yes)
             {
                 var frm = (ProfilePage)this.Parent.Parent;
-                
 
                 if ((frm != null))
                 {
-                   
-
                     Staff updatestaff = await db.staffs.FindAsync(selectedId);
-
                     frm.OpenChildForm(new addstaff(updatestaff), sender);
-
                 }
-
             }
         }
 
-        private void dataGridStaff_SelectionChanged(object sender, EventArgs e)
+        private async void deleteStaffBtn_Click(object sender, EventArgs e)
         {
+            
+            selectedId = Convert.ToInt32(dataGridStaff.CurrentRow.Cells["PersonelNo"].Value);
+            DialogResult result = new DialogResult();
+            result = MessageBox.Show(selectedId + " Numaralı Personel Silinsin mi?", "Personel Sil", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-
-
+            if (result == DialogResult.Yes)
+            {
+                Staff delstaff = await db.staffs.FindAsync(selectedId);
+                db.staffs.Remove(delstaff);
+                db.SaveChanges();
+            }
         }
     }
 }

@@ -48,6 +48,7 @@
             roleBox = new ComboBox();
             empRegistBtn = new Button();
             panel1 = new Panel();
+            updateBtn = new Button();
             telTxtBox = new MaskedTextBox();
             tcTxtBox = new MaskedTextBox();
             panel1.SuspendLayout();
@@ -186,7 +187,7 @@
             unitBox.Name = "unitBox";
             unitBox.Size = new Size(185, 34);
             unitBox.TabIndex = 17;
-            unitBox.SelectedValueChanged += unitBox_SelectedValueChanged;
+            unitBox.SelectionChangeCommitted += unitBox_SelectionChangeCommitted;
             // 
             // jobBox
             // 
@@ -216,6 +217,7 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(updateBtn);
             panel1.Controls.Add(telTxtBox);
             panel1.Controls.Add(tcTxtBox);
             panel1.Controls.Add(empRegistBtn);
@@ -241,6 +243,17 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(762, 396);
             panel1.TabIndex = 21;
+            // 
+            // updateBtn
+            // 
+            updateBtn.Location = new Point(439, 312);
+            updateBtn.Name = "updateBtn";
+            updateBtn.Size = new Size(118, 55);
+            updateBtn.TabIndex = 25;
+            updateBtn.Text = "Güncelle\r\n";
+            updateBtn.UseVisualStyleBackColor = true;
+            updateBtn.Visible = false;
+            updateBtn.Click += updateBtn_Click;
             // 
             // telTxtBox
             // 
@@ -271,7 +284,7 @@
             Margin = new Padding(4);
             Name = "addstaff";
             Text = "Personel Ekle";
-            Load += addemp_Load;
+            Load += addstaff_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
@@ -301,5 +314,6 @@
         public ComboBox roleBox;
         public MaskedTextBox telTxtBox;
         public MaskedTextBox tcTxtBox;
+        private Button updateBtn;
     }
 }

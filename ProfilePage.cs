@@ -16,8 +16,8 @@ namespace staj_proje_ef
 {
     public partial class ProfilePage : Form
     {
-        public  Button currentButton;
-        public  Form activeForm;
+        public Button currentButton;
+        public Form activeForm;
 
 
         public ProfilePage()
@@ -26,7 +26,7 @@ namespace staj_proje_ef
 
         }
         viewstaff vp = new Forms.viewstaff(new addstaff());
-        
+
         public void ActivateButton(object btnSender)
         {
             if (btnSender != null)
@@ -117,12 +117,12 @@ namespace staj_proje_ef
 
         private void viewCusBtn_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Forms.viewcustomer(),sender);
+            OpenChildForm(new Forms.viewcustomer(), sender);
         }
 
         private void acceptCusBtn_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Forms.acceptcustomer(),sender);
+            OpenChildForm(new Forms.acceptcustomer(), sender);
         }
 
         private void addCusBtn_Click(object sender, EventArgs e)
@@ -142,6 +142,21 @@ namespace staj_proje_ef
         private void ProfilePage_Load(object sender, EventArgs e)
         {
             Authorization();
+        }
+
+        private void settingsButton_Click(object sender, EventArgs e)
+        {
+            settings fm1 = new settings();
+            fm1.TopLevel = false;
+            fm1.FormBorderStyle = FormBorderStyle.None;
+            fm1.Dock = DockStyle.Fill;
+            this.mainPanel.Controls.Add(fm1);
+            this.mainPanel.Tag = fm1;
+            fm1.BringToFront();
+            fm1.Show();
+            pageNameLabel.Visible = true;
+            pageNameLabel.Text = fm1.Text;
+
         }
     }
 
